@@ -1,0 +1,70 @@
+Usage
+=====
+
+Escape Unicode Maven File Filter is a Plexus Component that should just work
+in any maven-plugin that uses 
+[Apache Maven Filtering](http://maven.apache.org/shared/maven-filtering/). 
+With that said, the only maven-plugin that has been tested is the 
+[maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)
+
+To enable the Escape Unicode Maven File Filter in maven-resources-plugin, use 
+the following snippet:
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <version>2.6</version>
+      <dependencies>
+        <dependency>
+          <groupId>${docGroupId}</groupId>
+          <artifactId>${docArtifactId}</artifactId>
+          <version>${docVersion}</version>
+        </dependency>
+      </dependencies>
+    </plugin>
+
+This will replace the DefaultMavenFileFilter with EscapeUnicodeMavenFileFilter 
+and all non-ascii characters will be replaced by the corresponding java escape 
+sequence in all files processed by maven-resources-plugin.
+
+Note that you probably want to use EscapeUnicodeMavenFileFilter when processing 
+Java Properties file, so a more realistic example is:
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <version>2.6</version>
+      <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>src/properties/directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      <dependencies>
+        <dependency>
+          <groupId>${docGroupId}</groupId>
+          <artifactId>${docArtifactId}</artifactId>
+          <version>${docVersion}</version>
+        </dependency>
+      </dependencies>
+    </plugin>

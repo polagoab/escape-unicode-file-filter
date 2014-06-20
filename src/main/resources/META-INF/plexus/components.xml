@@ -1,0 +1,18 @@
+<component-set>
+  <components>
+    <component>
+      <role>org.apache.maven.shared.filtering.MavenFileFilter</role>
+      <role-hint>default</role-hint>
+      <implementation>org.polago.maven.shared.filtering.escapeunicode.EscapeUnicodeMavenFileFilter</implementation>
+      <description></description>
+      <isolated-realm>false</isolated-realm>
+      <requirements>
+        <requirement>
+          <role>org.sonatype.plexus.build.incremental.BuildContext</role>
+          <role-hint></role-hint>
+          <field-name>buildContext</field-name>
+        </requirement>
+      </requirements>
+    </component>
+  </components>
+</component-set>
