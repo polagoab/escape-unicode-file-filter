@@ -41,7 +41,7 @@ public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
         throws MavenFilteringException {
         List<FileUtils.FilterWrapper> result =
             super.getDefaultFilterWrappers(req);
-
+        result.add(new EscapeUnicodeFilterWrapper());
         return result;
     }
 
