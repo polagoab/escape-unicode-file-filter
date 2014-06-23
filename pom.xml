@@ -537,7 +537,7 @@
 
   <profiles>
     <profile>
-      <id>run-its</id>
+      <id>it</id>
       <build>
         <plugins>
           <plugin>
