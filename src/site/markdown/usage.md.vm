@@ -13,7 +13,7 @@ the following snippet:
     <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-resources-plugin</artifactId>
-      <version>2.6</version>
+      <version>${resourcesPluginVersion}</version>
       <dependencies>
         <dependency>
           <groupId>${docGroupId}</groupId>
@@ -30,41 +30,40 @@ sequence in all files processed by maven-resources-plugin.
 Note that you probably want to use EscapeUnicodeMavenFileFilter when processing 
 Java Properties file, so a more realistic example is:
 
-  <build>
-    <resources>
-      <resource>
-        <directory>src/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
+    <build>
+      <resources>
+        <resource>
+          <directory>src/resources</directory>
+          <filtering>true</filtering>
+        </resource>
+      </resources>
 
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-resources-plugin</artifactId>
-      <version>2.6</version>
-      <executions>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
           <execution>
             <id>copy-resources</id>
             <phase>validate</phase>
             <goals>
               <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${basedir}/target/classes</outputDirectory>
-              <resources>          
-                <resource>
-                  <directory>src/properties/directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>              
-            </configuration>            
-          </execution>
-        </executions>
-      <dependencies>
-        <dependency>
-          <groupId>${docGroupId}</groupId>
-          <artifactId>${docArtifactId}</artifactId>
-          <version>${docVersion}</version>
-        </dependency>
-      </dependencies>
-    </plugin>
+        </goals>
+        <configuration>
+          <outputDirectory>${basedir}/target/classes</outputDirectory>
+          <resources>          
+            <resource>
+              <directory>src/properties/directory>
+              <filtering>true</filtering>
+            </resource>
+          </resources>              
+        </configuration>            
+        <dependencies>
+          <dependency>
+            <groupId>${docGroupId}</groupId>
+            <artifactId>${docArtifactId}</artifactId>
+            <version>${docVersion}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </build>
