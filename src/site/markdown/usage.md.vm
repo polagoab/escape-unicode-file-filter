@@ -48,7 +48,9 @@ Java Properties file, so a more realistic example is:
             <phase>validate</phase>
             <goals>
               <goal>copy-resources</goal>
-        </goals>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <outputDirectory>${basedir}/target/classes</outputDirectory>
           <resources>          
@@ -56,7 +58,7 @@ Java Properties file, so a more realistic example is:
               <directory>src/properties/directory>
               <filtering>true</filtering>
             </resource>
-          </resources>              
+          </resources> 
         </configuration>            
         <dependencies>
           <dependency>
