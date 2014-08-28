@@ -16,9 +16,10 @@
 
 package org.polago.maven.shared.filtering.escapeunicode;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.maven.shared.filtering.AbstractMavenFilteringRequest;
 import org.apache.maven.shared.filtering.DefaultMavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFilteringException;
@@ -26,8 +27,8 @@ import org.codehaus.plexus.component.annotations.Component;
 import org.codehaus.plexus.util.FileUtils;
 
 /**
- * A Maven File Filter that translates all non-ASCII characters to the
- * corresponding java escape sequence.
+ * A Maven File Filter that translates all non-ASCII characters in
+ * properties-files to the corresponding java escape sequence.
  * <p>
  * This is a Plexus Component with a default hint so it will replace the
  * DefaultMavenFilter when added to a maven-plugin as a dependency.
@@ -36,13 +37,16 @@ import org.codehaus.plexus.util.FileUtils;
 public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
 
     @Override
-    public List<FileUtils.FilterWrapper> getDefaultFilterWrappers(
-        final AbstractMavenFilteringRequest req)
-        throws MavenFilteringException {
-        List<FileUtils.FilterWrapper> result =
-            super.getDefaultFilterWrappers(req);
-        result.add(new EscapeUnicodeFilterWrapper());
-        return result;
-    }
+    public void copyFile(File from, File to, boolean filtering,
+        List<FileUtils.FilterWrapper> filterWrappers, String encoding,
+        boolean overwrite) throws MavenFilteringException {
 
+        List<FileUtils.FilterWrapper> w = filterWrappers;
+        if (filtering && from.getName().endsWith(".properties")) {
+            w = new ArrayList<FileUtils.FilterWrapper>();
+            w.addAll(filterWrappers);
+            w.add(new EscapeUnicodeFilterWrapper());
+        }
+        super.copyFile(from, to, filtering, w, encoding, overwrite);
+    }
 }
