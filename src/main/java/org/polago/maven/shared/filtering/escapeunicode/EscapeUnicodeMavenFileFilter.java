@@ -19,6 +19,7 @@ package org.polago.maven.shared.filtering.escapeunicode;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.maven.shared.filtering.DefaultMavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFileFilter;
@@ -36,17 +37,49 @@ import org.codehaus.plexus.util.FileUtils;
 @Component(role = MavenFileFilter.class, hint = "default")
 public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
 
+    private static final String SYSTEM_PROPERTY =
+        EscapeUnicodeMavenFileFilter.class.getName() + ".pattern";
+
+    private Pattern escapePattern = Pattern.compile(".*\\.properties$");
+
+    /**
+     * Public Constructor.
+     */
+    EscapeUnicodeMavenFileFilter() {
+        super();
+        String pattern = System.getProperty(SYSTEM_PROPERTY);
+        if (pattern != null) {
+            escapePattern = Pattern.compile(pattern);
+        }
+    }
+
     @Override
     public void copyFile(File from, File to, boolean filtering,
         List<FileUtils.FilterWrapper> filterWrappers, String encoding,
         boolean overwrite) throws MavenFilteringException {
 
+        getLogger().debug(
+            "Using Escape Pattern: " + escapePattern.pattern());
+
         List<FileUtils.FilterWrapper> w = filterWrappers;
-        if (filtering && from.getName().endsWith(".properties")) {
+        if (filtering && isPropertiesFile(from)) {
+            getLogger().debug(
+                "Adding EscapeUnicodeFilterWrapper for file: "
+                    + from.getName());
             w = new ArrayList<FileUtils.FilterWrapper>();
             w.addAll(filterWrappers);
             w.add(new EscapeUnicodeFilterWrapper());
         }
         super.copyFile(from, to, filtering, w, encoding, overwrite);
+    }
+
+    /**
+     * Determine if the given File is a properties file.
+     *
+     * @param file the File to examine
+     * @return true if the FILE
+     */
+    private boolean isPropertiesFile(File file) {
+        return escapePattern.matcher(file.getName()).matches();
     }
 }

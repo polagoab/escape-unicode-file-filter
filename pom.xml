@@ -27,7 +27,8 @@
   <description>
     The Escape Unicode Maven File Filter is a Plexus Component that provides an
     implementation of org.apache.maven.shared.filtering.MavenFileFilter that 
-    translates all non-ASCII characters to the corresponding java escape sequence.   
+    translates all non-ASCII characters to the corresponding java escape sequence
+    in properties files.   
     It's normally used with maven plugins that uses the Apache Maven Filtering
     shared component, such as the maven-resources-plugin. 
   </description>
@@ -80,6 +81,18 @@
   </organization>
 
   <dependencies>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>3.0.3</version>
+    </dependency>
+
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-component-annotations</artifactId>
@@ -347,6 +360,20 @@
     </pluginManagement>
 
     <plugins>
+      <plugin>
+        <groupId>org.eclipse.sisu</groupId>
+        <artifactId>sisu-maven-plugin</artifactId>
+        <version>0.2.0</version>
+        <executions>
+          <execution>
+            <id>index-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>index</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
       <plugin>
         <groupId>org.codehaus.plexus</groupId>

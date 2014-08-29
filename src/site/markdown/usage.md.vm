@@ -24,48 +24,12 @@ the following snippet:
     </plugin>
 
 This will replace the DefaultMavenFileFilter with EscapeUnicodeMavenFileFilter 
-and all non-ascii characters will be replaced by the corresponding java escape 
-sequence in all files processed by maven-resources-plugin.
+and all non-ASCII characters will be replaced by the corresponding java escape 
+sequence in all properties files processed by maven-resources-plugin.
+ 
+The EscapeUnicodeMavenFileFilter defines properties files by matching 
+file names against a regex that by default is `.*\.properties$`.
 
-Note that you probably want to use EscapeUnicodeMavenFileFilter when processing 
-Java Properties file, so a more realistic example is:
-
-    <build>
-      <resources>
-        <resource>
-          <directory>src/resources</directory>
-          <filtering>true</filtering>
-        </resource>
-      </resources>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
-        <executions>
-          <execution>
-            <id>copy-resources</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <outputDirectory>${basedir}/target/classes</outputDirectory>
-          <resources>          
-            <resource>
-              <directory>src/properties/directory>
-              <filtering>true</filtering>
-            </resource>
-          </resources> 
-        </configuration>            
-        <dependencies>
-          <dependency>
-            <groupId>${docGroupId}</groupId>
-            <artifactId>${docArtifactId}</artifactId>
-            <version>${docVersion}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-    </build>
+Since there is no way to configure the EscapeUnicodeMavenFileFilter from the 
+Maven POM, there is a system property that may be used to change the regex. 
+The system property is  `org.polago.maven.shared.filtering.escapeunicode.EscapeUnicodeMavenFileFilter.pattern`.
