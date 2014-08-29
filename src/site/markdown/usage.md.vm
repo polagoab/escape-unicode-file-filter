@@ -23,13 +23,13 @@ the following snippet:
       </dependencies>
     </plugin>
 
-This will replace the DefaultMavenFileFilter with EscapeUnicodeMavenFileFilter 
+This will replace the `DefaultMavenFileFilter` with `EscapeUnicodeMavenFileFilter` 
 and all non-ASCII characters will be replaced by the corresponding java escape 
 sequence in all properties files processed by maven-resources-plugin.
  
-The EscapeUnicodeMavenFileFilter defines properties files by matching 
-file names against a regex that by default is `.*\.properties$`.
+The filter identify properties files by matching file names against a regex 
+that by default is `.*\.properties$`.
 
-Since there is no way to configure the EscapeUnicodeMavenFileFilter from the 
-Maven POM, there is a system property that may be used to change the regex. 
-The system property is  `org.polago.maven.shared.filtering.escapeunicode.EscapeUnicodeMavenFileFilter.pattern`.
+Since there is no way to configure the filter from the Maven POM, there is a 
+system property that may be used to change the regex. The system property is 
+`org.polago.maven.shared.filtering.escapeunicode.EscapeUnicodeMavenFileFilter.pattern`.
