@@ -21,7 +21,7 @@
   <groupId>org.polago.maven.shared.filtering.it</groupId>
   <artifactId>plain-ascii-it</artifactId>
   <name>Plain ASCII Integration Test</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>@project.version@</version>
   <build>
     <resources>
       <resource>
