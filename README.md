@@ -1,5 +1,4 @@
-Escape Unicode File Filter
-==========================
+# Escape Unicode File Filter [![Build Status](https://travis-ci.org/polagoab/escape-unicode-file-filter.svg?branch=master)](https://travis-ci.org/polagoab/escape-unicode-file-filter)
 
 This repository contains the source code for escape-unicode-file-filter, 
 a Plexus Component that provides an implementation of 
