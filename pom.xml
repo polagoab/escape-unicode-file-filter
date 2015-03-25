@@ -85,6 +85,12 @@
     <url>https://github.com/polagoab/escape-unicode-file-filter/issues</url>
   </issueManagement>
 
+  <scm>
+    <connection>scm:git:https://github.com/polagoab/escape-unicode-file-filter.git</connection>
+    <developerConnection>scm:git:https://github.com/polagoab/escape-unicode-file-filter.git</developerConnection>
+    <url>https://github.com/polagoab/escape-unicode-file-filter</url>
+  </scm>
+
   <distributionManagement>
     <site>
       <id>website</id>
