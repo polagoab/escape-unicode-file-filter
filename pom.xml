@@ -80,6 +80,11 @@
     <url>http://www.polago.com/</url>
   </organization>
 
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/polagoab/escape-unicode-file-filter/issues</url>
+  </issueManagement>
+
   <distributionManagement>
     <site>
       <id>website</id>
