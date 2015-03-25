@@ -31,6 +31,15 @@
   <publishDate format="yyyy-MM-dd" />
 
   <body>
+    <breadcrumbs>
+      <item name="Polago Open Source" href="http://www.polago.org/" />
+      <item name="${project.name}" href="http://www.polago.org/${project.artifactId}" />
+    </breadcrumbs>
+
+    <links>
+      <item name="Polago.com" href="http://www.polago.com/" />
+    </links>
+
     <menu name="Overview">
       <item name="Introduction" href="index.html" />
       <item name="Usage" href="usage.html" />
