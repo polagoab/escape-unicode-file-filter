@@ -85,6 +85,11 @@
     <url>https://github.com/polagoab/escape-unicode-file-filter/issues</url>
   </issueManagement>
 
+  <ciManagement>
+    <system>Travis</system>
+    <url>https://travis-ci.org/polagoab/escape-unicode-file-filter</url>
+  </ciManagement>
+
   <scm>
     <connection>scm:git:https://github.com/polagoab/escape-unicode-file-filter.git</connection>
     <developerConnection>scm:git:https://github.com/polagoab/escape-unicode-file-filter.git</developerConnection>
