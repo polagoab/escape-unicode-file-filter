@@ -25,7 +25,8 @@ the following snippet:
 
 This will replace the `DefaultMavenFileFilter` with `EscapeUnicodeMavenFileFilter` 
 and all non-ASCII characters will be replaced by the corresponding java escape 
-sequence in all properties files processed by maven-resources-plugin.
+sequence in all properties files processed by maven-resources-plugin. The filter will
+always use `ISO-8859-1` as input encoding for all properties files.
  
 The filter identify properties files by matching file names against a regex 
 that by default is `.*\.properties$`.
