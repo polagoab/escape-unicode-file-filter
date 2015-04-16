@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Polago AB.
+ * Copyright 2014-2015 Polago AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,11 @@ public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
     private static final String SYSTEM_PROPERTY =
         EscapeUnicodeMavenFileFilter.class.getName() + ".pattern";
 
+    // Properties files are by definition ISO-8859-1
+    private static final String PROPERTIES_ENCODING = "ISO-8859-1";
+
     private Pattern escapePattern = Pattern.compile(".*\\.properties$");
+
 
     /**
      * Public Constructor.
@@ -66,6 +70,7 @@ public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
             getLogger().debug(
                 "Adding EscapeUnicodeFilterWrapper for file: "
                     + from.getName());
+            encoding = PROPERTIES_ENCODING;
             w = new ArrayList<FileUtils.FilterWrapper>();
             w.addAll(filterWrappers);
             w.add(new EscapeUnicodeFilterWrapper());
