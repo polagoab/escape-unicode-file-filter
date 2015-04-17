@@ -1,0 +1,9 @@
+About ${project.name}
+---------------------
+    
+The ${project.name} is a Plexus Component that provides an implementation of 
+[org.apache.maven.shared.filtering.MavenFileFilter](http://maven.apache.org/shared/maven-filtering/)
+that translates all non-ASCII characters to the corresponding java escape sequence in properties files.   
+
+It's normally used with maven plugins that uses the Apache Maven Filtering Shared Component,
+such as [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/). 
