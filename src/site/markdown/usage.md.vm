@@ -3,9 +3,9 @@ Usage
 
 Escape Unicode Maven File Filter is a Plexus Component that should just work
 in any maven-plugin that uses 
-[Apache Maven Filtering](http://maven.apache.org/shared/maven-filtering/). 
-With that said, the only maven-plugin that has been tested is the 
-[maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)
+[Apache Maven Filtering version ${mavenFilteringVersion}](http://maven.apache.org/shared/maven-filtering/). 
+With that said, the only maven-plugin that has been tested is 
+[maven-resources-plugin version ${resourcesPluginVersion}](http://maven.apache.org/plugins/maven-resources-plugin/).
 
 To enable the Escape Unicode Maven File Filter in maven-resources-plugin, use 
 the following snippet:
