@@ -505,7 +505,6 @@
                   </reports>
                 </reportSet>
               </reportSets>
-
               <configuration>
                 <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
               </configuration>
