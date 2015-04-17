@@ -23,7 +23,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Escape Unicode Maven File Filter</name>
-  <url>http://www.polago.org/${project.artifactId}</url>
+  <url>http://www.polago.org/escape-unicode-file-filter</url>
   <description>
     The Escape Unicode Maven File Filter is a Plexus Component that provides an
     implementation of org.apache.maven.shared.filtering.MavenFileFilter that 
