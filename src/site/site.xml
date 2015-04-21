@@ -68,6 +68,7 @@
     <menu name="Documentation">
       <item name="Introduction" href="index.html" />
       <item name="Usage" href="usage.html" />
+      <item name="Release Notes" href="${scm.url}/releases" />
     </menu>
 
     <menu name="Resources">
