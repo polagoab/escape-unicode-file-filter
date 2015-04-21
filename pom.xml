@@ -378,12 +378,6 @@
           <version>1.6</version>
         </plugin>
 
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.1</version>
-        </plugin>
-
       </plugins>
     </pluginManagement>
 
@@ -654,18 +648,6 @@
                 </goals>
               </execution>
             </executions>
-          </plugin>
-
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-release-plugin</artifactId>
-            <configuration>
-              <autoVersionSubmodules>true</autoVersionSubmodules>
-              <useReleaseProfile>false</useReleaseProfile>
-              <releaseProfiles>ossrh</releaseProfiles>
-              <tagNameFormat>v@{project.version}</tagNameFormat>
-              <goals>deploy</goals>
-            </configuration>
           </plugin>
 
         </plugins>
