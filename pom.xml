@@ -196,12 +196,6 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-changes-plugin</artifactId>
-          <version>2.11</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>2.15</version>
         </plugin>
@@ -552,20 +546,6 @@
                   <reports>
                     <report>javadoc</report>
                         <!-- <report>test-javadoc</report> -->
-                  </reports>
-                </reportSet>
-              </reportSets>
-            </plugin>
-
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-changes-plugin</artifactId>
-              <configuration>
-              </configuration>
-              <reportSets>
-                <reportSet>
-                  <reports>
-                    <report>changes-report</report>
                   </reports>
                 </reportSet>
               </reportSets>
