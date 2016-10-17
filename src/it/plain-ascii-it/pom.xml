@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- - Copyright 2014 Polago AB.
+ - Copyright 2014-2016 Polago AB.
  -
  - Licensed under the Apache License, Version 2.0 (the "License");
  - you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@
         <dependencies>
           <dependency>
             <groupId>org.polago.maven.shared.filtering</groupId>
-            <artifactId>escape-unicode</artifactId>
+            <artifactId>escape-unicode-file-filter</artifactId>
             <version>@project.version@</version>
           </dependency>
         </dependencies>
