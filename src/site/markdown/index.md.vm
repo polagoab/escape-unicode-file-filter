@@ -1,5 +1,5 @@
 About ${project.name}
----------------------
+=====================
 
 The ${project.name} is a Plexus Component that provides an implementation of 
 <code>org.apache.maven.shared.filtering.MavenFileFilter</code> from [Apache Maven Filtering version ${mavenFilteringVersion}](http://maven.apache.org/shared/maven-filtering/). 
