@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Polago AB.
+ * Copyright 2014-2016 Polago AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import java.util.regex.Pattern;
 import org.apache.maven.shared.filtering.DefaultMavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFilteringException;
+import org.apache.maven.shared.utils.io.FileUtils;
 import org.codehaus.plexus.component.annotations.Component;
-import org.codehaus.plexus.util.FileUtils;
 
 /**
  * A Maven File Filter that translates all non-ASCII characters in
@@ -45,7 +45,6 @@ public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
 
     private Pattern escapePattern = Pattern.compile(".*\\.properties$");
 
-
     /**
      * Public Constructor.
      */
@@ -62,14 +61,12 @@ public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
         List<FileUtils.FilterWrapper> filterWrappers, String encoding,
         boolean overwrite) throws MavenFilteringException {
 
-        getLogger().debug(
-            "Using Escape Pattern: " + escapePattern.pattern());
+        getLogger().debug("Using Escape Pattern: " + escapePattern.pattern());
 
         List<FileUtils.FilterWrapper> w = filterWrappers;
         if (filtering && isPropertiesFile(from)) {
-            getLogger().debug(
-                "Adding EscapeUnicodeFilterWrapper for file: "
-                    + from.getName());
+            getLogger().debug("Adding EscapeUnicodeFilterWrapper for file: "
+                + from.getName());
             encoding = PROPERTIES_ENCODING;
             w = new ArrayList<FileUtils.FilterWrapper>();
             w.addAll(filterWrappers);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Polago AB.
+ * Copyright 2014-2016 Polago AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package org.polago.maven.shared.filtering.escapeunicode;
 
 import java.io.Reader;
 
-import org.codehaus.plexus.util.FileUtils;
+import org.apache.maven.shared.utils.io.FileUtils;
 
 /**
  * A Plexus FilterWrapper that uses the {@link EscapeUnicodeReader}.
