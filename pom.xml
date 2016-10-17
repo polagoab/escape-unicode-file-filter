@@ -302,7 +302,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.4</version>
           <dependencies>
             <!-- add support for ssh/scp -->
             <dependency>
