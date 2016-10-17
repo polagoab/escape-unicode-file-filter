@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- - Copyright 2014-2015 Polago AB.
+ - Copyright 2014-2016 Polago AB.
  -
  - Licensed under the Apache License, Version 2.0 (the "License");
  - you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
   <groupId>org.polago.maven.shared.filtering</groupId>
   <artifactId>escape-unicode-file-filter</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>2.0-SNAPSHOT</version>
   <name>Escape Unicode Maven File Filter</name>
   <url>http://www.polago.org/escape-unicode-file-filter</url>
   <description>
@@ -36,14 +36,14 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <mavenFilteringVersion>1.1</mavenFilteringVersion>
-    <mavenVersion>3.0.4</mavenVersion>
+    <mavenFilteringVersion>3.1.1</mavenFilteringVersion>
+    <mavenVersion>3.0</mavenVersion>
     <jdkVersion>1.7</jdkVersion>
     <surefireVersion>2.18.1</surefireVersion>
     <docGroupId>${project.groupId}</docGroupId>
     <docArtifactId>${project.artifactId}</docArtifactId>
     <docVersion>${project.version}</docVersion>
-    <resourcesPluginVersion>2.6</resourcesPluginVersion>
+    <resourcesPluginVersion>3.0.1</resourcesPluginVersion>
   </properties>
 
   <prerequisites>
@@ -112,7 +112,7 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
-      <version>3.0.3</version>
+      <version>${mavenVersion}</version>
     </dependency>
 
     <dependency>
@@ -672,7 +672,6 @@
                 <goal>process-resources</goal>
               </goals>
               <settingsFile>src/it/settings.xml</settingsFile>
-              <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
             </configuration>
             <executions>
               <execution>
