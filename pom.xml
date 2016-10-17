@@ -37,7 +37,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <mavenFilteringVersion>3.1.1</mavenFilteringVersion>
-    <mavenVersion>3.0</mavenVersion>
+    <mavenVersion>3.0.4</mavenVersion>
     <jdkVersion>1.7</jdkVersion>
     <surefireVersion>2.18.1</surefireVersion>
     <docGroupId>${project.groupId}</docGroupId>
