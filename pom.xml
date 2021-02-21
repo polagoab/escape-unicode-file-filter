@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- - Copyright 2014-2016 Polago AB.
+ - Copyright 2014-2021 Polago AB.
  -
  - Licensed under the Apache License, Version 2.0 (the "License");
  - you may not use this file except in compliance with the License.
@@ -37,8 +37,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <mavenFilteringVersion>3.1.1</mavenFilteringVersion>
-    <mavenVersion>3.0.4</mavenVersion>
-    <jdkVersion>1.7</jdkVersion>
+    <mavenVersion>3.6.0</mavenVersion>
+    <jdkVersion>1.8</jdkVersion>
     <surefireVersion>2.19.1</surefireVersion>
     <docGroupId>${project.groupId}</docGroupId>
     <docArtifactId>${project.artifactId}</docArtifactId>
