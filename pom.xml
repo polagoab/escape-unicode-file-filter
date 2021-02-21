@@ -43,7 +43,7 @@
     <docGroupId>${project.groupId}</docGroupId>
     <docArtifactId>${project.artifactId}</docArtifactId>
     <docVersion>${project.version}</docVersion>
-    <resourcesPluginVersion>3.0.1</resourcesPluginVersion>
+    <resourcesPluginVersion>3.2.0</resourcesPluginVersion>
   </properties>
 
   <prerequisites>
