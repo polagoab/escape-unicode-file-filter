@@ -1,4 +1,4 @@
-# Escape Unicode File Filter [![Build Status](https://travis-ci.org/polagoab/escape-unicode-file-filter.svg?branch=master)](https://travis-ci.org/polagoab/escape-unicode-file-filter)
+# Escape Unicode File Filter [![Build Status](https://github.com/polagoab/escape-unicode-file-filter/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/polagoab/escape-unicode-file-filter/actions/workflows/build.yml)
 
 This repository contains the source code for
 [escape-unicode-file-filter](http://www.polago.org/escape-unicode-file-filter), 
