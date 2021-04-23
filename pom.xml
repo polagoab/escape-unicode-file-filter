@@ -82,13 +82,13 @@
   </developers>
 
   <issueManagement>
-    <system>GitHub</system>
+    <system>GitHub Issues</system>
     <url>https://github.com/polagoab/escape-unicode-file-filter/issues</url>
   </issueManagement>
 
   <ciManagement>
-    <system>Travis</system>
-    <url>https://travis-ci.org/polagoab/escape-unicode-file-filter</url>
+    <system>Github Actions</system>
+    <url>https://github.com/polagoab/escape-unicode-file-filter/actions</url>
   </ciManagement>
 
   <scm>
