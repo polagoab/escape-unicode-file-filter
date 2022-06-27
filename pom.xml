@@ -48,10 +48,6 @@
     <resourcesPluginVersion>3.2.0</resourcesPluginVersion>
   </properties>
 
-  <prerequisites>
-    <maven>${mavenVersion}</maven>
-  </prerequisites>
-
   <inceptionYear>2014</inceptionYear>
 
   <licenses>
