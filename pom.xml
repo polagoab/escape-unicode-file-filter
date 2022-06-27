@@ -37,6 +37,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <site.deploy.url>scpexe://www.polago.org/var/www/html/${project.artifactId}/</site.deploy.url>
     <mavenFilteringVersion>3.2.0</mavenFilteringVersion>
     <mavenVersion>3.6.0</mavenVersion>
     <jdkVersion>1.8</jdkVersion>
@@ -101,7 +102,7 @@
   <distributionManagement>
     <site>
       <id>website</id>
-      <url>scp://www.polago.org/var/www/html/${project.artifactId}/</url>
+      <url>${site.deploy.url}</url>
     </site>
     <snapshotRepository>
       <id>ossrh</id>
