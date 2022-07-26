@@ -45,7 +45,7 @@
     <docGroupId>${project.groupId}</docGroupId>
     <docArtifactId>${project.artifactId}</docArtifactId>
     <docVersion>${project.version}</docVersion>
-    <resourcesPluginVersion>3.2.0</resourcesPluginVersion>
+    <resourcesPluginVersion>3.3.0</resourcesPluginVersion>
   </properties>
 
   <inceptionYear>2014</inceptionYear>
