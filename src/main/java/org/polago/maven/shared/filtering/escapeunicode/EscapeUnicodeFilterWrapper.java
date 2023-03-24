@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2016 Polago AB.
+ * Copyright 2014-2022 Polago AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,19 +18,19 @@ package org.polago.maven.shared.filtering.escapeunicode;
 
 import java.io.Reader;
 
-import org.apache.maven.shared.utils.io.FileUtils;
+import org.apache.maven.shared.filtering.FilterWrapper;
 
 /**
  * A Plexus FilterWrapper that uses the {@link EscapeUnicodeReader}.
  */
-class EscapeUnicodeFilterWrapper extends FileUtils.FilterWrapper {
+class EscapeUnicodeFilterWrapper extends FilterWrapper {
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Reader getReader(Reader reader) {
-        return new EscapeUnicodeReader(reader);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Reader getReader(Reader reader) {
+		return new EscapeUnicodeReader(reader);
+	}
 
 }

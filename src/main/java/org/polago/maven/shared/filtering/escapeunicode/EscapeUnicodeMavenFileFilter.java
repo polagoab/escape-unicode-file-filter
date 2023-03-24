@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2016 Polago AB.
+ * Copyright 2014-2022 Polago AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,11 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.inject.Inject;
+
 import org.apache.maven.shared.filtering.DefaultMavenFileFilter;
+import org.apache.maven.shared.filtering.FilterWrapper;
 import org.apache.maven.shared.filtering.MavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFilteringException;
-import org.apache.maven.shared.utils.io.FileUtils;
 import org.codehaus.plexus.component.annotations.Component;
+import org.sonatype.plexus.build.incremental.BuildContext;
 
 /**
  * A Maven File Filter that translates all non-ASCII characters in
@@ -37,51 +40,52 @@ import org.codehaus.plexus.component.annotations.Component;
 @Component(role = MavenFileFilter.class, hint = "default")
 public class EscapeUnicodeMavenFileFilter extends DefaultMavenFileFilter {
 
-    private static final String SYSTEM_PROPERTY =
-        EscapeUnicodeMavenFileFilter.class.getName() + ".pattern";
+	private static final String SYSTEM_PROPERTY = EscapeUnicodeMavenFileFilter.class.getName() + ".pattern";
 
-    // Properties files are by definition ISO-8859-1
-    private static final String PROPERTIES_ENCODING = "ISO-8859-1";
+	// Properties files are by definition ISO-8859-1
+	private static final String PROPERTIES_ENCODING = "ISO-8859-1";
 
-    private Pattern escapePattern = Pattern.compile(".*\\.properties$");
+	private Pattern escapePattern = Pattern.compile(".*\\.properties$");
 
-    /**
-     * Public Constructor.
-     */
-    EscapeUnicodeMavenFileFilter() {
-        super();
-        String pattern = System.getProperty(SYSTEM_PROPERTY);
-        if (pattern != null) {
-            escapePattern = Pattern.compile(pattern);
-        }
-    }
+	/**
+	 * Public Constructor.
+	 *
+	 * @param buildContext the {@link BuildContext} to use
+	 */
+	@Inject
+	public EscapeUnicodeMavenFileFilter(BuildContext buildContext) {
+		super(buildContext);
 
-    @Override
-    public void copyFile(File from, File to, boolean filtering,
-        List<FileUtils.FilterWrapper> filterWrappers, String encoding,
-        boolean overwrite) throws MavenFilteringException {
+		String pattern = System.getProperty(SYSTEM_PROPERTY);
+		if (pattern != null) {
+			escapePattern = Pattern.compile(pattern);
+		}
+	}
 
-        getLogger().debug("Using Escape Pattern: " + escapePattern.pattern());
+	@Override
+	public void copyFile(File from, File to, boolean filtering, List<FilterWrapper> filterWrappers, String encoding,
+			boolean overwrite) throws MavenFilteringException {
 
-        List<FileUtils.FilterWrapper> w = filterWrappers;
-        if (filtering && isPropertiesFile(from)) {
-            getLogger().debug("Adding EscapeUnicodeFilterWrapper for file: "
-                + from.getName());
-            encoding = PROPERTIES_ENCODING;
-            w = new ArrayList<FileUtils.FilterWrapper>();
-            w.addAll(filterWrappers);
-            w.add(new EscapeUnicodeFilterWrapper());
-        }
-        super.copyFile(from, to, filtering, w, encoding, overwrite);
-    }
+		getLogger().debug("Using Escape Pattern: " + escapePattern.pattern());
 
-    /**
-     * Determine if the given File is a properties file.
-     *
-     * @param file the File to examine
-     * @return true if the FILE
-     */
-    private boolean isPropertiesFile(File file) {
-        return escapePattern.matcher(file.getName()).matches();
-    }
+		List<FilterWrapper> w = filterWrappers;
+		if (filtering && isPropertiesFile(from)) {
+			getLogger().debug("Adding EscapeUnicodeFilterWrapper for file: " + from.getName());
+			encoding = PROPERTIES_ENCODING;
+			w = new ArrayList<FilterWrapper>();
+			w.addAll(filterWrappers);
+			w.add(new EscapeUnicodeFilterWrapper());
+		}
+		super.copyFile(from, to, filtering, w, encoding, overwrite);
+	}
+
+	/**
+	 * Determine if the given File is a properties file.
+	 *
+	 * @param file the File to examine
+	 * @return true if the FILE
+	 */
+	private boolean isPropertiesFile(File file) {
+		return escapePattern.matcher(file.getName()).matches();
+	}
 }
