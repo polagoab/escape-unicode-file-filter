@@ -38,7 +38,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <site.deploy.url>scpexe://www.polago.org/var/www/html/${project.artifactId}/</site.deploy.url>
-    <mavenFilteringVersion>3.3.0</mavenFilteringVersion>
+    <mavenFilteringVersion>3.3.2</mavenFilteringVersion>
     <mavenVersion>3.8.1</mavenVersion>
     <jdkVersion>1.8</jdkVersion>
     <surefireVersion>3.2.5</surefireVersion>
